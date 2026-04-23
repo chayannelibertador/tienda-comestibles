@@ -1,0 +1,297 @@
+.catalog-container {
+    display: flex;
+    gap: var(--spacing-xxl);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--spacing-md) var(--spacing-sm);
+    align-items: flex-start;
+}
+
+.catalog-content {
+    flex: 1;
+    width: 100%;
+}
+
+.catalog__title {
+    font-size: var(--font-size-xl);
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-md);
+    font-weight: 800;
+}
+
+.catalog__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.no-results {
+    text-align: center;
+    color: var(--color-gray);
+    font-size: var(--font-size-lg);
+    margin-top: var(--spacing-xxl);
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    /* Animación de cascada se añadirá en JS vía estilos en línea o clase extra */
+    animation: fadeSlideUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Promo Badge (Novedad, Más Vendido, etc.) */
+.product-badge-promo {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: linear-gradient(135deg, #ec4899 0%, #e11d48 100%);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 900;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    z-index: 3;
+    box-shadow: 0 4px 10px rgba(225, 29, 72, 0.4);
+    transform: rotate(3deg);
+    border: 2px solid white;
+}
+
+/* Express Badge */
+.express-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(249, 115, 22, 0.15);
+    /* Naranja muy suave */
+    color: var(--color-primary);
+    /* Naranja fuerte */
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 6px 12px;
+    border-radius: 20px;
+    /* Pill shape */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.product-image {
+    font-size: 5rem;
+    background: radial-gradient(circle at center, #f8fafc 0%, #f1f5f9 100%);
+    width: 100%;
+    aspect-ratio: 4/3;
+    /* Reducido la altura para que no sea tan alargado (antes 1/1) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px 20px 0 0;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    text-shadow: none;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+    text-shadow: none;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    flex: 1;
+    padding: var(--spacing-md);
+    text-align: center;
+    background: white;
+    border-radius: 0 0 20px 20px;
+}
+
+.product-name {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin: 0 0 4px 0;
+    color: var(--color-dark);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+    width: 100%;
+    transition: color 0.2s;
+}
+
+.product-card:hover .product-name {
+    color: var(--color-primary);
+}
+
+.product-price {
+    font-weight: 800;
+    color: var(--color-primary);
+    font-size: 1.35rem;
+    /* Más grande e imponente */
+    margin-top: auto;
+    margin-bottom: var(--spacing-sm);
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.product-price::before {
+    content: "$";
+    font-size: 0.9rem;
+    color: var(--color-gray);
+    font-weight: 600;
+    transform: translateY(-2px);
+}
+
+.product-info .btn {
+    width: 100%;
+    border-radius: 50px;
+    /* Pill shape */
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(249, 115, 22, 0.2);
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .btn {
+    box-shadow: 0 6px 15px rgba(249, 115, 22, 0.35);
+    transform: translateY(-2px);
+}
+
+/* Responsiveness */
+@media (max-width: 1199px) {
+    .catalog__grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .catalog-container {
+        gap: var(--spacing-lg);
+    }
+
+    .catalog__grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .catalog-container {
+        flex-direction: column;
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .sidebar {
+        width: 100%;
+        position: static;
+    }
+
+    .catalog__grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: var(--spacing-md);
+    }
+
+    .product-image {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}
+
+/* Promotional Banner */
+.catalog-promo-banner {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.catalog-promo-banner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.promo-banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.catalog-promo-banner:hover .promo-banner-image {
+    transform: scale(1.05);
+}
+
+.promo-banner-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-lg);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.promo-banner-overlay h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0 0 var(--spacing-xs) 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.promo-banner-overlay p {
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.9;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px) {
+    .catalog-promo-banner {
+        height: 150px;
+    }
+    .promo-banner-overlay h3 {
+        font-size: 1.25rem;
+    }
+}

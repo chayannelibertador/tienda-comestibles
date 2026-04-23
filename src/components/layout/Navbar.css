@@ -1,0 +1,182 @@
+.navbar {
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow-sm);
+    padding: var(--spacing-sm) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar__logo img {
+    width: clamp(25px, 3vw, 35px);
+    height: auto;
+}
+
+.navbar__logo {
+    font-size: var(--font-size-xl);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+    margin-left: 2rem;
+    /* Added margin as requested */
+    color: inherit;
+}
+
+.navbar__logo:hover {
+    opacity: 0.8;
+}
+
+.navbar__links {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.navbar__link {
+    color: var(--color-dark);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.navbar__link:hover {
+    color: var(--color-primary);
+}
+
+/* Utilities */
+.ml-2 {
+    margin-left: 0.5rem;
+}
+
+.mr-2 {
+    margin-right: 0.5rem;
+}
+
+/* Logout button with high contrast */
+.btn-logout {
+    background-color: #dc2626 !important;
+    color: #ffffff !important;
+    border-color: #dc2626 !important;
+    font-weight: 600;
+}
+
+.btn-logout:hover {
+    background-color: #b91c1c !important;
+    border-color: #b91c1c !important;
+}
+
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar__container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .navbar__logo {
+        font-size: var(--font-size-lg);
+        flex-shrink: 0;
+    }
+
+    .navbar__actions {
+        gap: var(--spacing-xs);
+    }
+
+    .navbar__actions button {
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar__logo {
+        font-size: var(--font-size-md);
+        max-width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .navbar__actions {
+        gap: 4px;
+    }
+
+    .navbar__actions button {
+        font-size: var(--font-size-xs);
+        padding: var(--spacing-xs);
+        min-width: auto;
+    }
+
+    /* Hide button text on very small screens, keep icons/badges */
+    .navbar__actions button:first-child {
+        display: none;
+    }
+
+    .mr-2 {
+        margin-right: 0;
+    }
+}
+
+/* Cart Link Styles */
+nav .navbar__cart-link.navbar__cart-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    /* Space between text/icon */
+    text-decoration: none;
+    color: var(--color-dark);
+    font-weight: 600;
+    font-size: var(--font-size-md);
+    transition: color var(--transition-fast);
+    padding: 8px 12px;
+    border-radius: var(--border-radius-md);
+    background-color: transparent !important;
+    /* Force remove background */
+    border: none !important;
+    /* Force remove border */
+}
+
+nav .navbar__cart-link.navbar__cart-link:hover {
+    color: var(--color-primary);
+    background-color: rgba(0, 0, 0, 0.02) !important;
+    /* Very subtle hover effect */
+}
+
+.cart-icon {
+    font-size: 1.2rem;
+}
+
+.cart-count {
+    background-color: var(--color-primary);
+    /* #F97316 */
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    /* Circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2px;
+    padding: 0 4px;
+}
+
+/* Force HMR */
+* {
+    border: 1px solid transparent !important;
+}

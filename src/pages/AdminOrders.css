@@ -1,0 +1,167 @@
+.admin-orders {
+    padding: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.admin-orders__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.admin-orders__header h1 {
+    margin-top: var(--spacing-md);
+    color: var(--color-dark);
+}
+
+/* Profitability Summary Widget */
+.profitability-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.summary-card {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-sm);
+    border: 1px solid var(--color-light);
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-card h3 {
+    font-size: var(--font-size-md);
+    color: var(--color-gray-dark);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.summary-card .amount {
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.summary-card small {
+    color: var(--color-gray);
+    font-size: 0.85rem;
+}
+
+.summary-card.warning .amount {
+    color: #e67e22;
+    /* Orange for suppliers */
+}
+
+.summary-card.success {
+    background: #f0fff4;
+    border-color: #c6f6d5;
+}
+
+.summary-card.success .amount {
+    color: #27ae60;
+    /* Green for profit */
+}
+
+/* Table Cells */
+.cost-cell {
+    color: #7f8c8d;
+}
+
+.expense-cell {
+    color: #c0392b;
+    /* Red for expenses */
+}
+
+.profit-cell {
+    font-weight: 700;
+}
+
+.profit-cell.positive {
+    color: #27ae60;
+}
+
+.profit-cell.negative {
+    color: #e74c3c;
+    background-color: #fcebeb;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.alert-icon {
+    margin-left: 6px;
+    font-size: 1.1em;
+    cursor: help;
+}
+
+.orders-table-wrapper {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-md);
+    overflow: hidden;
+    margin-top: var(--spacing-lg);
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders-table th {
+    background: var(--color-dark);
+    color: white;
+    padding: var(--spacing-md);
+    text-align: left;
+    font-weight: 600;
+}
+
+.orders-table td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-gray-dark);
+}
+
+.total-cell {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.status-select {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--color-light);
+    border-radius: var(--border-radius-sm);
+    background: white;
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.status-select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.empty-orders {
+    text-align: center;
+    padding: var(--spacing-xxl);
+    background: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-sm);
+    color: var(--color-gray);
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .orders-table {
+        font-size: var(--font-size-sm);
+    }
+
+    .admin-orders {
+        padding: var(--spacing-md);
+    }
+}

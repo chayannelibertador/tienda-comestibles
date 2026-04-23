@@ -1,0 +1,223 @@
+.product-list {
+    background: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-md);
+}
+
+.product-list__filters {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    background: #f9fafb;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    align-items: center;
+}
+
+.filter-search {
+    flex: 1;
+    min-width: 200px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--color-light);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-md);
+}
+
+.filter-search:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.filter-select {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--color-light);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-md);
+    cursor: pointer;
+}
+
+.product-list__table-wrapper {
+    overflow-x: auto;
+    margin-bottom: var(--spacing-md);
+}
+
+.product-list__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-list__table th {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: var(--spacing-md);
+    text-align: left;
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+}
+
+.product-list__table td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-light);
+}
+
+.product-list__table tbody tr:hover {
+    background-color: var(--color-light);
+}
+
+.product-image-cell {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.product-name-cell {
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.price-cell {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.stock-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.stock-badge--ok {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.stock-badge--low {
+    background-color: #ffedd5;
+    color: #9a3412;
+    animation: pulse 2s infinite;
+}
+
+.stock-badge--out {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.actions-cell {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.quick-stock-actions {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.quick-stock-btn {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quick-stock-btn:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+.empty-message {
+    text-align: center;
+    padding: var(--spacing-xxl);
+    color: var(--color-gray);
+    font-style: italic;
+}
+
+.product-list__summary {
+    text-align: right;
+    color: var(--color-gray);
+    font-size: var(--font-size-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--color-light);
+}
+
+@media (max-width: 768px) {
+    .product-list__table {
+        font-size: var(--font-size-sm);
+    }
+
+    .product-list__table th,
+    .product-list__table td {
+        padding: var(--spacing-sm);
+    }
+
+    .actions-cell {
+        flex-direction: column;
+    }
+}
+
+/* Skeleton Loaders */
+.skeleton-row td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-light);
+}
+
+.skeleton-box {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: var(--border-radius-sm);
+}
+
+.skeleton-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.skeleton-text {
+    width: 80%;
+    height: 20px;
+}
+
+.skeleton-text-short {
+    width: 50%;
+    height: 20px;
+}
+
+.skeleton-badge {
+    width: 70px;
+    height: 24px;
+    border-radius: 999px;
+}
+
+.skeleton-btn {
+    width: 60px;
+    height: 32px;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}

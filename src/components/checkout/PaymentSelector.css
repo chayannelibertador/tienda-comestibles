@@ -1,0 +1,392 @@
+/* Payment Selector Pro Styles */
+.payment-selector-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.payment-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.payment-option {
+    border: 2px solid #e2e8f0;
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    transition: all 0.2s ease;
+    text-align: center;
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.payment-option:hover {
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.payment-option.selected {
+    border-color: var(--color-primary);
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    box-shadow: 0 0 0 1px var(--color-primary), 0 8px 16px -4px rgba(59, 130, 246, 0.2);
+}
+
+/* Checkmark badge for selected */
+.payment-option.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--color-primary);
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.payment-option input {
+    display: none;
+}
+
+.payment-icon {
+    font-size: 2.5rem;
+    margin-bottom: 4px;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.payment-option.selected .payment-icon {
+    filter: none;
+    transform: scale(1.15);
+}
+
+.payment-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.payment-name {
+    font-weight: 700;
+    color: var(--color-dark);
+    font-size: 1.1rem;
+}
+
+.payment-description {
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* Card Form Container */
+.card-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card Preview */
+.card-preview {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-preview-inner {
+    width: 100%;
+    max-width: 380px;
+    height: 220px;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+    border-radius: 16px;
+    padding: 24px;
+    color: white;
+    position: relative;
+    box-shadow:
+        0 20px 40px -10px rgba(30, 58, 138, 0.4),
+        0 10px 20px -5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.card-preview-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+.card-preview-inner.visa {
+    background: linear-gradient(135deg, #1a1f71 0%, #2563eb 100%);
+}
+
+.card-preview-inner.mastercard {
+    background: linear-gradient(135deg, #cc2229 0%, #ff5722 100%);
+}
+
+.card-preview-inner.amex {
+    background: linear-gradient(135deg, #006fcf 0%, #00a1e4 100%);
+}
+
+.card-chip {
+    width: 50px;
+    height: 40px;
+    background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+    border-radius: 6px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    padding: 6px;
+}
+
+.chip-line {
+    width: 100%;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+}
+
+.chip-main {
+    width: 20px;
+    height: 14px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.card-type-logo {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+.card-number-preview {
+    margin-top: 40px;
+    font-size: 1.4rem;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 3px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-details-preview {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.card-name-preview {
+    letter-spacing: 1px;
+    max-width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-expiry-preview {
+    font-family: 'Courier New', monospace;
+}
+
+/* Card Form */
+.card-form {
+    background: #f8fafc;
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group.full-width {
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input {
+    padding: 14px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    background: white;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding-right: 45px;
+}
+
+.card-icon,
+.cvv-tooltip {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: #9ca3af;
+}
+
+.cvv-tooltip {
+    width: 20px;
+    height: 20px;
+    background: #e5e7eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: help;
+}
+
+/* Payment Info Boxes */
+.payment-info-box {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    animation: slideDown 0.4s ease-out;
+}
+
+.payment-info-box.efectivo {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 1px solid #a7f3d0;
+}
+
+.payment-info-box.transferencia {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border: 1px solid #93c5fd;
+}
+
+.info-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.info-content h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.info-content p {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.bank-info {
+    margin-top: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #1e40af;
+    background: white;
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .payment-selector {
+        grid-template-columns: 1fr;
+    }
+
+    .card-preview-inner {
+        height: 200px;
+        padding: 20px;
+    }
+
+    .card-number-preview {
+        font-size: 1.2rem;
+        margin-top: 30px;
+        letter-spacing: 2px;
+    }
+
+    .card-details-preview {
+        font-size: 0.8rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .payment-info-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}

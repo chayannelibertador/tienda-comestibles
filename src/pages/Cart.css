@@ -1,0 +1,199 @@
+.cart {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cart__title {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--font-size-xl);
+}
+
+.cart-empty {
+    text-align: center;
+    padding: var(--spacing-xxl) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.cart-empty-icon {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    margin-bottom: var(--spacing-sm);
+    animation: floatCartIcon 3.5s ease-in-out infinite;
+    opacity: 0.9;
+}
+
+@keyframes floatCartIcon {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.cart__items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.cart__item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-md);
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-sm);
+    gap: var(--spacing-md);
+}
+
+.cart__item-image {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius-sm);
+}
+
+.cart__item-info {
+    flex: 1;
+}
+
+.cart__item-info h3 {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+.cart__item-price {
+    color: var(--color-gray);
+    font-size: var(--font-size-sm);
+}
+
+.cart__item-total {
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    color: var(--color-dark);
+    margin-right: var(--spacing-md);
+}
+
+.btn-danger-outline {
+    color: var(--color-danger);
+    border-color: var(--color-danger);
+}
+
+.btn-danger-outline:hover {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+}
+
+.cart__summary {
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-md);
+}
+
+.cart__total-breakdown {
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.cart__total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-md);
+    color: var(--color-gray);
+}
+
+.cart__total-row--final {
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-light);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+.cart__total-price-final {
+    color: var(--color-primary);
+}
+
+.cart__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+}
+
+.cart__item-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-right: var(--spacing-md);
+}
+
+.cart__item-quantity {
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+.btn-sm {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    min-width: 30px;
+}
+
+/* === Barra de progreso: Envío Gratis === */
+.shipping-progress {
+    background: #f0fdf4;
+    border: 1.5px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 1.25rem;
+    transition: background 0.4s;
+}
+
+.shipping-progress--achieved {
+    background: #dcfce7;
+    border-color: #4ade80;
+}
+
+.shipping-progress__label {
+    font-size: 0.92rem;
+    color: #166534;
+    margin: 0 0 0.6rem 0;
+    line-height: 1.4;
+}
+
+.shipping-progress__label--ok {
+    color: #15803d;
+    font-weight: 500;
+}
+
+.shipping-progress__bar {
+    background: #d1fae5;
+    border-radius: 99px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.shipping-progress__fill {
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+    border-radius: 99px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}

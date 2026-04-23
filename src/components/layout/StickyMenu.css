@@ -1,0 +1,208 @@
+.sticky-menu {
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    box-shadow: var(--box-shadow-md);
+    width: 100%;
+}
+
+.sticky-menu__bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+    height: 60px;
+}
+
+/* LOGO */
+.sticky-menu__logo {
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: opacity var(--transition-fast);
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    margin-left: 2rem;
+    /* Added margin as requested */
+    padding-left: 0;
+}
+
+.sticky-menu__logo:hover {
+    color: var(--color-primary);
+}
+
+/* CENTRO: MENÚ */
+.sticky-menu__center {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+/* DERECHA: ACCIONES */
+.sticky-menu__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.sticky-menu__btn {
+    background: none;
+    border: none;
+    color: var(--color-white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: background-color var(--transition-fast);
+    position: relative;
+    border-radius: var(--border-radius-sm);
+}
+
+.sticky-menu__btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sticky-menu__btn.active {
+    background-color: var(--color-primary);
+}
+
+.arrow {
+    font-size: 0.7em;
+    opacity: 0.7;
+}
+
+/* User Menu Inline */
+.user-menu-inline {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.user-welcome {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.user-buttons {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.menu-action-btn.small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+.menu-action-btn.text-only {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0;
+    min-width: auto;
+}
+
+.menu-action-btn.text-only:hover {
+    color: var(--color-white);
+    text-decoration: underline;
+    background: none;
+}
+
+/* Logout button with high contrast (compatible with dark background) */
+.sticky-menu .btn-logout {
+    background-color: #dc2626 !important;
+    color: #ffffff !important;
+    border-color: #dc2626 !important;
+    font-weight: 600;
+}
+
+.sticky-menu .btn-logout:hover {
+    background-color: #b91c1c !important;
+    border-color: #b91c1c !important;
+}
+
+/* Dropdown Content */
+.sticky-menu__content {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    border-bottom: 4px solid var(--color-primary);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    padding: var(--spacing-lg) var(--spacing-md);
+    animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.menu-item {
+    background: var(--color-light);
+    /* Assuming #F8FAFC equivalent */
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding: 10px 16px;
+    color: var(--color-gray);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-item:hover {
+    background: linear-gradient(135deg, #ff8c00 0%, #ff5e00 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 115, 0, 0.3);
+    border-color: transparent;
+}
+
+.menu-list {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.full-width {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .sticky-menu__center {
+        display: none;
+        /* Simplificación para móvil por ahora */
+    }
+
+    .user-welcome {
+        display: none;
+    }
+}

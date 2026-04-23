@@ -1,0 +1,106 @@
+.my-orders {
+    padding: var(--spacing-xl);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.my-orders h1 {
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-dark);
+}
+
+.empty-orders {
+    text-align: center;
+    padding: var(--spacing-xxl);
+    background: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-sm);
+}
+
+.empty-orders p {
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-lg);
+}
+
+.orders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.user-order-card {
+    background: white;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-sm);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-light);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.user-order-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--box-shadow-md);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-bg-light);
+}
+
+.order-id {
+    font-weight: 700;
+    color: var(--color-gray-dark);
+}
+
+.card-body {
+    flex: 1;
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-dark);
+}
+
+.card-body p {
+    margin-bottom: var(--spacing-xs);
+}
+
+.price {
+    font-size: var(--font-size-md);
+    color: var(--color-primary);
+}
+
+.card-footer {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.btn-cancel {
+    background: #fff5f5;
+    border-color: #feb2b2 !important;
+    color: #c53030 !important;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: var(--spacing-sm) !important;
+}
+
+.btn-cancel:hover {
+    background: #fff5f5 !important;
+    border-color: #fc8181 !important;
+    color: #9b2c2c !important;
+    transform: none !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+@media (max-width: 600px) {
+    .my-orders {
+        padding: var(--spacing-md);
+    }
+}

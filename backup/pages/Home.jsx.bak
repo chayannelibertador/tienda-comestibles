@@ -1,0 +1,61 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from '../components/common/Button';
+import Testimonials from '../components/common/Testimonials';
+import TrustSection from '../components/common/TrustSection';
+import Marquee from '../components/common/Marquee';
+import BrandIcon from '../components/common/BrandIcon';
+import heroCrate from '../assets/hero-crate.png';
+import darkPromoBanner from '../assets/dark_promo_banner.png';
+import './Home.css';
+
+export default function Home() {
+    const navigate = useNavigate();
+
+    return (
+        <div className="home page-enter">
+            <Marquee />
+
+            <section className="hero">
+                <div className="hero__content">
+                    <h1 className="hero__title">
+                        <BrandIcon className="hero__brand-icon" />
+                        <span className="hero__title-text">
+                            <span style={{ color: '#ff7300' }}>ALTOQUE</span>
+                            <span style={{ color: '#a2d348' }}>MARKET</span>
+                        </span>
+                    </h1>
+
+                    <button className="hero__cta" onClick={() => navigate('/catalog')}>
+                        <svg className="hero__cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        IR A LA TIENDA
+                    </button>
+                </div>
+                <div className="hero__image">
+                    <img
+                        src={heroCrate}
+                        alt="Cajón de verduras Altoque"
+                        className="hero__product-img active"
+                    />
+                </div>
+            </section>
+
+            <section className="promo-banner">
+                <div className="promo-banner__content">
+                    <img 
+                        src={darkPromoBanner} 
+                        alt="Promoción Especial" 
+                        className="promo-banner__image" 
+                    />
+                </div>
+            </section>
+
+            <TrustSection />
+            <Testimonials />
+        </div>
+    );
+}

@@ -1,0 +1,107 @@
+.privacy-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-xxl) var(--spacing-md);
+}
+
+.privacy-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.privacy-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.privacy-badge {
+    display: inline-block;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-md);
+}
+
+.privacy-header h1 {
+    font-size: 2.5rem;
+    color: var(--color-dark);
+    margin: 0;
+    font-weight: 800;
+}
+
+.privacy-header p {
+    color: var(--color-gray);
+    margin-top: var(--spacing-sm);
+}
+
+.privacy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.privacy-section {
+    padding: var(--spacing-xl);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.privacy-section:hover {
+    transform: translateY(-5px);
+}
+
+.section-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.privacy-section h2 {
+    font-size: 1.3rem;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+.privacy-section p {
+    color: #4b5563;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.privacy-disclaimer {
+    margin-top: var(--spacing-xl);
+    text-align: center;
+    padding: var(--spacing-lg);
+    border-top: 1px solid #e5e7eb;
+}
+
+.privacy-disclaimer p {
+    color: var(--color-gray);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .privacy-header h1 {
+        font-size: 2rem;
+    }
+
+    .privacy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .privacy-section {
+        padding: var(--spacing-lg);
+    }
+}

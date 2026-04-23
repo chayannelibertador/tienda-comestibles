@@ -1,0 +1,214 @@
+.trust-section {
+    position: relative;
+    padding: var(--spacing-xxl) 0;
+    margin-top: 4rem;
+    background: transparent;
+    overflow: hidden;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+/* Atmospheric soft glow behind the section */
+.trust-section::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(249, 115, 22, 0.05) 0%, transparent 70%);
+    top: 50%;
+    left: -200px;
+    transform: translateY(-50%);
+    z-index: -1;
+    filter: blur(60px);
+}
+
+.trust-section__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    position: relative;
+    z-index: 2; /* Content strictly sits above the flap */
+}
+
+.trust-section__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 6rem auto 0;
+    padding: 0 var(--spacing-md);
+    position: relative;
+    z-index: 1;
+}
+
+@media (min-width: 768px) {
+    .trust-section__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.trust-card {
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 10px 15px -3px rgba(0, 0, 0, 0.05); /* very soft shadow */
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.trust-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 25px -5px rgba(249, 115, 22, 0.1), 0 10px 10px -5px rgba(249, 115, 22, 0.04);
+    border-color: rgba(249, 115, 22, 0.2);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Elegant edge highlight on hover */
+.trust-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-primary) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.trust-card:hover::before {
+    opacity: 1;
+}
+
+.trust-card__icon {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.05), rgba(249, 115, 22, 0.15));
+    color: var(--color-primary);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-sm);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    box-shadow: inset 0 0 0 1px rgba(249, 115, 22, 0.1);
+}
+
+.trust-card__icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.2);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.trust-card:hover .trust-card__icon {
+    transform: scale(1.1) translateY(-5px);
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(249, 115, 22, 0.2));
+}
+
+.trust-card:hover .trust-card__icon::after {
+    opacity: 1;
+}
+
+.trust-card__title {
+    color: var(--color-dark);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Title Alignment Layer (respects the 1200px grid boundary) */
+.trust-section .section-title-wrapper {
+    display: flex;
+    justify-content: flex-start !important; /* Left aligned directly now */
+    width: 100%;
+    margin-bottom: 6rem;
+    text-align: left;
+}
+
+.trust-section .animated-title-text {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: -1px;
+    width: fit-content;
+    max-width: 100%;
+    text-align: left !important;
+    background: rgba(249, 115, 22, 0.65); /* Naranja transparente matching the blue section's cut */
+    padding: 12px 60px 12px 60px;
+    clip-path: polygon(45px 0%, 100% 0%, calc(100% - 45px) 100%, 0% 100%); /* Paralelogramo same orientation */
+    
+    /* Animation Sequence */
+    color: transparent;
+    transform: translateX(-100vw);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s, color 0.3s ease 0.4s;
+}
+
+.trust-section .align-left {
+    text-align: left; 
+}
+
+.trust-section .animated-title-text.is-visible {
+    transform: translateX(0);
+    color: var(--color-white);
+}
+
+/* Independence Layer (The full bleed Flap Background) */
+.trust-section .flap-bg-container {
+    position: absolute;
+    top: calc(var(--spacing-xxl) - 15px); /* Matches typical title height */
+    height: 100px;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+    z-index: 1; /* Sits beneath the content wrapper */
+    left: 0; /* Moving entirely to Left side logic */
+    width: 55vw; /* Visual left-margin block stretching to center */
+}
+
+.trust-section .flap-shape {
+    width: 100%;
+    height: 100%;
+}
+
+.trust-section .bg-slate {
+    background: #1e293b; 
+    /* INITIAL STATE: Collapsed completely to the left edge */
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%); 
+    transition: clip-path 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.trust-section .flap-bg-container.is-visible .bg-slate {
+    /* FINAL STATE: Extended 55vw towards the right exactly matching orange flap behavior */
+    clip-path: polygon(0% 0%, 100% 0%, 92% 100%, 0% 100%); 
+}
+
+@media (max-width: 900px) {
+    .trust-section .flap-bg-container {
+        width: 90vw; /* Extremely wide on mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .trust-section .animated-title-text {
+        font-size: 1.5rem;
+        padding: 8px 30px;
+        clip-path: polygon(25px 0%, 100% 0%, calc(100% - 25px) 100%, 0% 100%);
+    }
+}

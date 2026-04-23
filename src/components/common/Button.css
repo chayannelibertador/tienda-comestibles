@@ -1,0 +1,75 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-family-base);
+    font-weight: 600;
+    font-size: var(--font-size-md);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Variants */
+.btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn--secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.btn--outline {
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn--outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* Full width */
+.btn--full-width {
+    width: 100%;
+}
+
+/* Disabled state — visual gris + transición suave al activarse */
+.btn:disabled,
+.btn[disabled] {
+    background-color: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.85;
+}
+
+.btn:disabled:hover,
+.btn[disabled]:hover {
+    background-color: #cbd5e1;
+    color: #94a3b8;
+    transform: none;
+}
+
+/* Transición suave para el "encendido" del botón */
+.btn--primary {
+    transition: background-color 0.4s ease, color 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+}
+
+.btn--primary:not(:disabled) {
+    box-shadow: 0 4px 14px rgba(var(--color-primary-rgb, 34, 197, 94), 0.35);
+}

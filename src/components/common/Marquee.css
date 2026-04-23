@@ -1,0 +1,47 @@
+.marquee-container {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 18px 0;
+    /* Increased padding for height */
+    font-weight: 700;
+    font-size: 1.15rem;
+    /* Slightly larger text */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+
+    /* Break out of parent container */
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: -1rem;
+    /* Counteract LayoutMain padding-top */
+    margin-bottom: 0;
+    /* Removed negative margin to add space to hero */
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: scroll 30s linear infinite;
+    /* Slower animation for readability */
+}
+
+.marquee-content span {
+    display: inline-block;
+    padding-right: 50px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-33.33%, 0);
+        /* Move by 1/3 since we have 3 sets of content */
+    }
+}

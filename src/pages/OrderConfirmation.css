@@ -1,0 +1,207 @@
+/* Order Confirmation Pro Styles */
+.order-confirmation-page {
+    padding: var(--spacing-xxl) var(--spacing-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background: #f1f5f9;
+}
+
+.confirmation-card {
+    background: white;
+    padding: 0;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    text-align: center;
+    max-width: 480px;
+    width: 100%;
+    animation: popIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative top bar */
+.confirmation-card::before {
+    content: '';
+    display: block;
+    height: 8px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+.card-content {
+    padding: var(--spacing-xxl);
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.95) translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.success-icon {
+    margin-bottom: var(--spacing-lg);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0fdf4;
+    /* Light green success background */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    animation: bounce 1s ease infinite;
+    box-shadow: inset 0 0 0 4px #bbf7d0;
+    /* subtle success ring */
+}
+
+.confirmation-brand-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.confirmation-card h1 {
+    font-size: 2rem;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 800;
+}
+
+.order-number {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: var(--spacing-xl);
+}
+
+.order-number strong {
+    color: var(--color-primary);
+    font-family: monospace;
+    font-size: 1.2em;
+}
+
+/* Receipt Style Section */
+.order-brief {
+    background: #f8fafc;
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-xl);
+    border: 1px dashed #cbd5e1;
+    text-align: left;
+}
+
+.brief-total-breakdown {
+    margin-bottom: var(--spacing-md);
+}
+
+.brief-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+    color: #64748b;
+}
+
+.brief-row.final {
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid #e2e8f0;
+    color: var(--color-dark);
+}
+
+.order-brief p {
+    margin-bottom: var(--spacing-sm);
+    color: #475569;
+}
+
+.status-badge-mini {
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Delivery Guarantee Section */
+.delivery-guarantee {
+    display: flex;
+    gap: var(--spacing-md);
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    border: 1px solid #bbf7d0;
+    margin: 0 var(--spacing-xl);
+    /* Reduje un poco el margen lateral */
+    margin-bottom: var(--spacing-lg);
+    align-items: center;
+    /* Centrado vertical del icono con el texto */
+    text-align: left;
+    /* Asegurar que el texto se lea natural junto al icono */
+}
+
+.guarantee-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.guarantee-text {
+    flex: 1;
+}
+
+.guarantee-text strong {
+    display: block;
+    color: #065f46;
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+}
+
+.guarantee-text p {
+    color: #047857;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.confirmation-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-xxl) var(--spacing-xxl);
+    background: white;
+}
+
+@media (min-width: 480px) {
+    .confirmation-actions {
+        flex-direction: row;
+        gap: var(--spacing-md);
+    }
+
+    .confirmation-actions a {
+        flex: 1;
+    }
+
+    .confirmation-actions button {
+        width: 100%;
+    }
+}
