@@ -290,6 +290,17 @@
 }
 
 @media (max-width: 768px) {
+    .testimonials {
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+    .testimonials__container {
+        padding-top: 60px;
+    }
+    .testimonials .section-title-wrapper {
+        margin-bottom: 2rem;
+        transform: translateX(1rem);
+    }
     .testimonials .animated-title-text {
         font-size: 1.5rem;
         padding: 8px 30px;
@@ -297,8 +308,5 @@
     }
     .testimonials .flap-bg-container.is-visible .bg-brand {
         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 25px 100%); 
-    }
-    .testimonials .section-title-wrapper {
-        transform: translateX(1rem);
     }
 }
