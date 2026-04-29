@@ -298,18 +298,13 @@
     }
 
     .hero__subtitle {
-        transform: translateX(25px) !important; /* Desplazado a la derecha como en PC */
-        font-style: italic;
-        margin-top: 0; /* Lo baja alejándolo del logo */
-        margin-bottom: -1.5rem; /* Lo acerca bastante al botón */
-        font-size: 0.75rem; /* Más chico aún */
-        letter-spacing: 1px !important;
-        white-space: nowrap;
+        display: none; /* Oculta el eslogan en la versión móvil */
     }
 
     .hero__cta-premium {
-        transform: translateX(25px) !important; /* Desplazado igual que el slogan */
+        transform: translateX(25px) !important; /* Mantiene la posición asimétrica */
         padding: 0.6rem 1.4rem;
         font-size: 0.85rem;
+        margin-top: -1rem; /* Sube el botón para achicar el espacio vacío */
     }
 }
