@@ -1,12 +1,12 @@
 .marquee-container {
-    background-color: var(--color-dark);
-    color: var(--color-white);
+    background: linear-gradient(90deg, #FF5F1F, #66FF00);
+    color: white;
     overflow: hidden;
     white-space: nowrap;
-    padding: 18px 0;
+    padding: 12px 0;
     /* Increased padding for height */
-    font-weight: 700;
-    font-size: 1.15rem;
+    font-weight: 600;
+    font-size: 1.1rem;
     /* Slightly larger text */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -20,8 +20,8 @@
     margin-right: -50vw;
     margin-top: -1rem;
     /* Counteract LayoutMain padding-top */
-    margin-bottom: 0;
-    /* Removed negative margin to add space to hero */
+    margin-bottom: -2.5rem;
+    /* Add some space below */
 }
 
 .marquee-content {
