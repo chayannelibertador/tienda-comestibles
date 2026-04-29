@@ -293,6 +293,10 @@
         max-width: 300px;
     }
 
+    .hero__container {
+        margin-top: -1rem; /* Da aire entre el logo y la marquesina */
+    }
+
     .hero__subtitle, .hero__cta-premium {
         transform: translateX(0) !important; /* Vuelve al centro perfecto en móviles */
     }
