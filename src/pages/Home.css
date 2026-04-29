@@ -298,7 +298,7 @@
     }
 
     .hero__subtitle {
-        transform: translateX(0) !important;
+        transform: translateX(35px) !important; /* Lo mueve a la derecha para que empiece después de la flecha */
         font-style: italic;
         margin-top: -1.5rem; /* Lo acerca al logo para simular un subrayado */
         font-size: 0.85rem; /* Achica la letra para que entre en un renglón */
