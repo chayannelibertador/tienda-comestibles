@@ -1,0 +1,233 @@
+/* Only visible on mobile devices */
+.mobile-catalog-nav {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-catalog-nav {
+        display: block;
+        position: fixed;
+        top: 80px; /* Right beneath the main header. Header height is usually 70-80px */
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 0 var(--spacing-sm);
+        pointer-events: none; /* Let clicks pass through the container itself */
+    }
+
+    /* The main pill */
+    .mobile-nav-pill {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--color-white);
+        border-radius: 50px;
+        padding: 8px 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        border: 1px solid #E2E8F0;
+        pointer-events: auto; /* Re-enable clicks for the pill */
+        position: relative;
+        z-index: 1002;
+    }
+
+    .nav-divider {
+        width: 1px;
+        height: 24px;
+        background-color: #E2E8F0;
+        margin: 0 4px;
+    }
+
+    .mobile-nav-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: transparent;
+        border: none;
+        color: var(--color-gray);
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 6px 10px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .mobile-nav-btn.active {
+        color: var(--color-primary);
+        background: rgba(249, 115, 22, 0.1);
+    }
+
+    .nav-icon {
+        font-size: 1.1rem;
+    }
+
+    .cart-btn {
+        padding-right: 4px; /* Slightly less padding since it's at the edge */
+    }
+
+    .cart-icon-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .cart-badge {
+        position: absolute;
+        top: -6px;
+        right: -8px;
+        background-color: #ef4444;
+        color: white;
+        font-size: 0.65rem;
+        font-weight: bold;
+        min-width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--color-white);
+    }
+
+    /* Dropdown Panels */
+    .mobile-nav-panel {
+        position: absolute;
+        top: 100%; /* Drop DOWN from the pill */
+        left: var(--spacing-sm);
+        right: var(--spacing-sm);
+        margin-top: 10px;
+        background: var(--color-white);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        border: 1px solid #E2E8F0;
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        pointer-events: auto;
+        z-index: 1001;
+    }
+
+    .mobile-nav-panel.is-open {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+    }
+
+    /* Small triangle pointing to the pill */
+    .mobile-nav-panel::before {
+        content: '';
+        position: absolute;
+        top: -6px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 12px;
+        height: 12px;
+        background: var(--color-white);
+        border-left: 1px solid #E2E8F0;
+        border-top: 1px solid #E2E8F0;
+    }
+
+    .panel-content {
+        padding: var(--spacing-lg);
+    }
+
+    .panel-title {
+        font-size: 1rem;
+        color: var(--color-dark);
+        margin-top: 0;
+        margin-bottom: var(--spacing-md);
+        text-align: center;
+        font-weight: 700;
+        border-bottom: 1px solid #E2E8F0;
+        padding-bottom: var(--spacing-sm);
+    }
+
+    /* Categories Grid */
+    .categories-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .category-pill-btn {
+        background: var(--color-light);
+        border: 1px solid #E2E8F0;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--color-gray);
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .category-pill-btn.active {
+        background: var(--color-primary);
+        color: white;
+        border-color: var(--color-primary);
+        box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
+    }
+
+    /* Search & Filter Content */
+    .search-content, .filter-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .mobile-search-input {
+        width: 100%;
+        padding: 12px 16px;
+        border-radius: 12px;
+        border: 2px solid #E2E8F0;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s;
+    }
+
+    .mobile-search-input:focus {
+        border-color: var(--color-primary);
+    }
+
+    .apply-filter-btn {
+        background: var(--color-dark);
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+    }
+
+    .price-display-mobile {
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--color-primary);
+    }
+
+    .mobile-range-slider {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    /* Backdrop */
+    .mobile-nav-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1000;
+        pointer-events: auto;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+}
