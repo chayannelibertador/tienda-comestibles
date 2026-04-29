@@ -302,7 +302,7 @@
     }
 
     .hero__cta-premium {
-        transform: translateX(25px) !important; /* Mantiene la posición asimétrica */
+        transform: translateX(0) !important; /* Centrado con respecto a la página */
         padding: 0.6rem 1.4rem;
         font-size: 0.85rem;
         margin-top: -1rem; /* Sube el botón para achicar el espacio vacío */
