@@ -6,11 +6,12 @@ import Card from '../components/common/Card';
 import Button from '../components/common/Button';
 import { ProductSkeletonCard } from '../components/common/Skeleton';
 import Sidebar from '../components/layout/Sidebar';
+import MobileCatalogNav from '../components/layout/MobileCatalogNav';
 import './Catalog.css';
 
 export default function Catalog() {
     const navigate = useNavigate();
-    const [searchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
     const { addToCart } = useCart();
     const { products, fetchProducts, currentPage, totalPages, loading } = useProducts();
     const [searchTerm, setSearchTerm] = useState('');
@@ -64,6 +65,21 @@ export default function Catalog() {
     return (
         <div className="catalog-container page-enter">
             <Sidebar onSearch={setSearchTerm} onPriceChange={setPriceRange} />
+            <MobileCatalogNav 
+                searchTerm={searchTerm}
+                onSearch={setSearchTerm}
+                priceRange={priceRange}
+                onPriceChange={setPriceRange}
+                currentCategory={categoryFilter}
+                onCategoryChange={(cat) => {
+                    if (cat === 'Todos') {
+                        searchParams.delete('category');
+                        setSearchParams(searchParams);
+                    } else {
+                        setSearchParams({ category: cat });
+                    }
+                }}
+            />
 
             <div className="catalog-content">
                 <div className="catalog-promo-banner hover-lift">

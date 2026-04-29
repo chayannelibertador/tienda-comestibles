@@ -211,8 +211,7 @@
     }
 
     .sidebar {
-        width: 100%;
-        position: static;
+        display: none; /* Ocultamos el sidebar clásico para dejar lugar al nav flotante */
     }
 
     .catalog__grid {
