@@ -298,9 +298,9 @@
     }
 
     .hero__subtitle {
-        transform: translateX(35px) !important; /* Lo mueve a la derecha para que empiece después de la flecha */
+        transform: translateX(0) !important; /* Vuelve al centro */
         font-style: italic;
-        margin-top: -1.5rem; /* Lo acerca al logo para simular un subrayado */
+        margin-top: -1.5rem; /* Lo acerca al logo */
         font-size: 0.85rem; /* Achica la letra para que entre en un renglón */
         letter-spacing: 1px !important; /* Reduce el espaciado para ayudar a que encaje */
         white-space: nowrap; /* Fuerza a que no haga salto de línea */
@@ -308,7 +308,7 @@
 
     .hero__cta-premium {
         transform: translateX(0) !important;
-        padding: 0.8rem 1.8rem; /* Achica el botón */
-        font-size: 1rem; /* Letra un poco más chica en el botón */
+        padding: 0.6rem 1.4rem; /* Achica aún más el botón para la forma de triángulo */
+        font-size: 0.9rem; /* Letra un poco más chica */
     }
 }
