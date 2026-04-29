@@ -298,17 +298,18 @@
     }
 
     .hero__subtitle {
-        transform: translateX(0) !important; /* Vuelve al centro */
+        transform: translateX(25px) !important; /* Desplazado a la derecha como en PC */
         font-style: italic;
-        margin-top: -1.5rem; /* Lo acerca al logo */
-        font-size: 0.85rem; /* Achica la letra para que entre en un renglón */
-        letter-spacing: 1px !important; /* Reduce el espaciado para ayudar a que encaje */
-        white-space: nowrap; /* Fuerza a que no haga salto de línea */
+        margin-top: 0; /* Lo baja alejándolo del logo */
+        margin-bottom: -1.5rem; /* Lo acerca bastante al botón */
+        font-size: 0.75rem; /* Más chico aún */
+        letter-spacing: 1px !important;
+        white-space: nowrap;
     }
 
     .hero__cta-premium {
-        transform: translateX(0) !important;
-        padding: 0.6rem 1.4rem; /* Achica aún más el botón para la forma de triángulo */
-        font-size: 0.9rem; /* Letra un poco más chica */
+        transform: translateX(25px) !important; /* Desplazado igual que el slogan */
+        padding: 0.6rem 1.4rem;
+        font-size: 0.85rem;
     }
 }
