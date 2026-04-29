@@ -54,7 +54,6 @@ export default function Home() {
 
                         <button className="hero__cta-premium" onClick={() => navigate('/catalog')}>
                             <span className="hero__cta-text">Explorar Tienda</span>
-                            <span className="hero__cta-icon">→</span>
                         </button>
                     </div>
 

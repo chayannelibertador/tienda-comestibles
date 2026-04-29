@@ -297,7 +297,15 @@
         margin-top: -1rem; /* Da aire entre el logo y la marquesina */
     }
 
-    .hero__subtitle, .hero__cta-premium {
-        transform: translateX(0) !important; /* Vuelve al centro perfecto en móviles */
+    .hero__subtitle {
+        transform: translateX(0) !important;
+        font-style: italic;
+        margin-top: -1.5rem; /* Lo acerca al logo para simular un subrayado */
+    }
+
+    .hero__cta-premium {
+        transform: translateX(0) !important;
+        padding: 0.8rem 1.8rem; /* Achica el botón */
+        font-size: 1rem; /* Letra un poco más chica en el botón */
     }
 }
