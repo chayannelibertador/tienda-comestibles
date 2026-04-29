@@ -301,6 +301,9 @@
         transform: translateX(0) !important;
         font-style: italic;
         margin-top: -1.5rem; /* Lo acerca al logo para simular un subrayado */
+        font-size: 0.85rem; /* Achica la letra para que entre en un renglón */
+        letter-spacing: 1px !important; /* Reduce el espaciado para ayudar a que encaje */
+        white-space: nowrap; /* Fuerza a que no haga salto de línea */
     }
 
     .hero__cta-premium {
