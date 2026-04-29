@@ -2,8 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { useTestimonials } from '../../context/TestimonialsContext';
 import './Testimonials.css';
 
-const ITEMS_PER_PAGE = 3;
-
 export default function Testimonials() {
     const { testimonials, loading } = useTestimonials();
 
@@ -12,6 +10,15 @@ export default function Testimonials() {
 
     const titleRef = useRef(null);
     const [isTitleVisible, setIsTitleVisible] = useState(false);
+    const [itemsPerPage, setItemsPerPage] = useState(window.innerWidth < 768 ? 1 : 3);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setItemsPerPage(window.innerWidth < 768 ? 1 : 3);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useEffect(() => {
         const observer = new IntersectionObserver(([entry]) => {
@@ -28,7 +35,7 @@ export default function Testimonials() {
     const intervalRef = useRef(null);
 
     const startInterval = () => {
-        if (displayTestimonials.length <= ITEMS_PER_PAGE) return;
+        if (displayTestimonials.length <= itemsPerPage) return;
 
         if (intervalRef.current) clearInterval(intervalRef.current);
         intervalRef.current = setInterval(() => {
@@ -41,10 +48,10 @@ export default function Testimonials() {
         return () => {
             if (intervalRef.current) clearInterval(intervalRef.current);
         };
-    }, [displayTestimonials.length]);
+    }, [displayTestimonials.length, itemsPerPage]);
 
     const changePage = (direction) => {
-        if (isAnimating || displayTestimonials.length <= ITEMS_PER_PAGE) return;
+        if (isAnimating || displayTestimonials.length <= itemsPerPage) return;
 
         setIsAnimating(true);
         startInterval(); // Reset timer
@@ -52,7 +59,7 @@ export default function Testimonials() {
 
         setTimeout(() => {
             setCurrentPage((prev) => {
-                const totalPages = Math.ceil(displayTestimonials.length / ITEMS_PER_PAGE);
+                const totalPages = Math.ceil(displayTestimonials.length / itemsPerPage);
                 if (direction === 'next') {
                     return (prev + 1) % totalPages;
                 } else {
@@ -74,11 +81,11 @@ export default function Testimonials() {
     const handleNext = () => changePage('next');
     const handlePrev = () => changePage('prev');
 
-    const startIndex = currentPage * ITEMS_PER_PAGE;
+    const startIndex = currentPage * itemsPerPage;
 
     const visibleReviews = [];
     if (displayTestimonials.length > 0) {
-        for (let i = 0; i < ITEMS_PER_PAGE; i++) {
+        for (let i = 0; i < itemsPerPage; i++) {
             const index = (startIndex + i) % displayTestimonials.length;
             visibleReviews.push(displayTestimonials[index]);
         }
@@ -101,7 +108,7 @@ export default function Testimonials() {
                     </h2>
                 </div>
                 <div className="testimonials__wrapper">
-                    {displayTestimonials.length > ITEMS_PER_PAGE && (
+                    {displayTestimonials.length > itemsPerPage && (
                         <button className="nav-btn prev" onClick={handlePrev} aria-label="Anterior">‹</button>
                     )}
 
@@ -121,7 +128,7 @@ export default function Testimonials() {
                         </div>
                     </div>
 
-                    {displayTestimonials.length > ITEMS_PER_PAGE && (
+                    {displayTestimonials.length > itemsPerPage && (
                         <button className="nav-btn next" onClick={handleNext} aria-label="Siguiente">›</button>
                     )}
                 </div>
