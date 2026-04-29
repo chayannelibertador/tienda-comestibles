@@ -44,8 +44,8 @@
     text-align: right !important; /* Aligned right */
     background: rgba(30, 41, 59, 0.65);
     padding: 12px 60px 12px 60px; /* Symmetry: exactly 60px on both sides so text clears the 45px diagonals */
-    /* Full parallelogram: parallel diagonals on both left and right */
-    clip-path: polygon(0% 0%, calc(100% - 45px) 0%, 100% 100%, 45px 100%); 
+    /* Flat on the right, slanted on the left */
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 45px 100%); 
     
     /* Animation initial states */
     color: transparent; 
@@ -66,8 +66,8 @@
 /* Independence Layer (The full bleed Flap Background) */
 .testimonials .flap-bg-container {
     position: absolute;
-    top: calc(var(--spacing-xxl) - 15px); /* Matches typical title height */
-    height: 100px;
+    top: calc(var(--spacing-xxl) - 5px); /* Matches typical title height */
+    height: 65px;
     filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
     z-index: 1;
     right: 0; /* Pin to right margin */
@@ -301,10 +301,14 @@
         margin-bottom: 2rem;
         transform: translateX(1rem);
     }
+    .testimonials .flap-bg-container {
+        height: 48px;
+        top: calc(2rem - 3px);
+    }
     .testimonials .animated-title-text {
         font-size: 1.5rem;
         padding: 8px 30px;
-        clip-path: polygon(0% 0%, calc(100% - 25px) 0%, 100% 100%, 25px 100%); 
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 25px 100%); 
     }
     .testimonials .flap-bg-container.is-visible .bg-brand {
         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 25px 100%); 
