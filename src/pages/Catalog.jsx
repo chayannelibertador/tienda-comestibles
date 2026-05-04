@@ -63,8 +63,7 @@ export default function Catalog() {
     }, [loading, filteredProducts.length, searchTerm]);
 
     return (
-        <div className="catalog-container page-enter">
-            <Sidebar onSearch={setSearchTerm} onPriceChange={setPriceRange} />
+        <>
             <MobileCatalogNav 
                 searchTerm={searchTerm}
                 onSearch={setSearchTerm}
@@ -80,6 +79,8 @@ export default function Catalog() {
                     }
                 }}
             />
+            <div className="catalog-container page-enter">
+                <Sidebar onSearch={setSearchTerm} onPriceChange={setPriceRange} />
 
             <div className="catalog-content">
                 <div className="catalog-promo-banner hover-lift">
@@ -172,5 +173,6 @@ export default function Catalog() {
                 )}
             </div>
         </div>
+        </>
     );
 }
