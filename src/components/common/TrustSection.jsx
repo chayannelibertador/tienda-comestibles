@@ -23,27 +23,27 @@ const TRUST_ITEMS = [
 ];
 
 export default function TrustSection() {
-    const titleRef = useRef(null);
-    const [isTitleVisible, setIsTitleVisible] = useState(false);
+    const sectionRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         const observer = new IntersectionObserver(([entry]) => {
-            setIsTitleVisible(entry.isIntersecting);
+            setIsVisible(entry.isIntersecting);
         }, { threshold: 0.1 });
 
-        if (titleRef.current) observer.observe(titleRef.current);
-        return () => { if (titleRef.current) observer.unobserve(titleRef.current); };
+        if (sectionRef.current) observer.observe(sectionRef.current);
+        return () => { if (sectionRef.current) observer.unobserve(sectionRef.current); };
     }, []);
 
     return (
-        <section className="trust-section">
-            <div className={`flap-bg-container flap-left ${isTitleVisible ? 'is-visible' : ''}`}>
+        <section className="trust-section" ref={sectionRef}>
+            <div className={`flap-bg-container flap-left ${isVisible ? 'is-visible' : ''}`}>
                <div className="flap-shape bg-slate"></div>
             </div>
 
             <div className="trust-section__content">
-                <div className="section-title-wrapper" ref={titleRef}>
-                    <h2 className={`animated-title-text align-left ${isTitleVisible ? 'is-visible' : ''}`}>
+                <div className="section-title-wrapper">
+                    <h2 className={`animated-title-text align-left ${isVisible ? 'is-visible' : ''}`}>
                         ¿Por qué elegirnos?
                     </h2>
                 </div>
@@ -52,7 +52,7 @@ export default function TrustSection() {
                 {TRUST_ITEMS.map((item, index) => (
                     <div 
                         key={item.id} 
-                        className={`trust-card ${isTitleVisible ? 'is-visible' : ''}`}
+                        className={`trust-card ${isVisible ? 'is-visible' : ''}`}
                         style={{ transitionDelay: `${index * 0.15}s` }}
                     >
                         <div className="trust-card__icon">{item.icon}</div>
