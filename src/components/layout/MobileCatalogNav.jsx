@@ -54,8 +54,7 @@ export default function MobileCatalogNav({
                     className={`mobile-nav-btn ${activeTab === 'categories' ? 'active' : ''}`} 
                     onClick={() => toggleTab('categories')}
                 >
-                    <span className="nav-icon">🏷️</span>
-                    <span className="nav-text">Categorías</span>
+                    <span className="nav-text" style={{ fontWeight: 'bold' }}>Categorías</span>
                 </button>
 
                 <div className="nav-divider"></div>
@@ -64,8 +63,7 @@ export default function MobileCatalogNav({
                     className={`mobile-nav-btn ${activeTab === 'filters' ? 'active' : ''}`} 
                     onClick={() => toggleTab('filters')}
                 >
-                    <span className="nav-icon">⚖️</span>
-                    <span className="nav-text">Filtros</span>
+                    <span className="nav-text" style={{ fontWeight: 'bold' }}>Filtros</span>
                 </button>
 
                 <div className="nav-divider"></div>
@@ -75,7 +73,6 @@ export default function MobileCatalogNav({
                     onClick={() => toggleTab('search')}
                 >
                     <span className="nav-icon">🔍</span>
-                    <span className="nav-text">Buscar</span>
                 </button>
 
                 <div className="nav-divider"></div>
