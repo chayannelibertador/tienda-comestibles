@@ -5,6 +5,7 @@ import { useFavorites } from '../../context/FavoritesContext';
 import { useCart } from '../../context/CartContext';
 import Button from '../common/Button';
 import Badge from '../common/Badge';
+import brandLogo from '../../assets/altoquemarket2.png';
 import './StickyMenu.css';
 
 const CATEGORIES = ['Todos', 'Express', 'Frutas', 'Verduras', 'Panadería', 'Lácteos', 'Bebidas'];
@@ -46,8 +47,7 @@ export default function StickyMenu() {
             <div className="sticky-menu__bar">
                 {/* IZQUIERDA: LOGO */}
                 <Link to="/" className="sticky-menu__logo" onClick={() => setActiveTab(null)}>
-                    <span style={{ color: '#ff7300' }}>ALTOQUE</span>
-                    <span style={{ color: '#a2d348' }}>MARKET</span>
+                    <img src={brandLogo} alt="Al Toque Market" style={{ height: '35px', width: 'auto', objectFit: 'contain' }} />
                 </Link>
 
                 {/* CENTRO: MENÚ */}
