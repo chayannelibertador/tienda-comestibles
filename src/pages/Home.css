@@ -66,87 +66,66 @@
     transform: translateX(45px); /* Desplaza a la derecha para compensar las líneas de velocidad del logo */
 }
 
-/* CTA Premium */
-.hero__cta-premium {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    background: linear-gradient(135deg, var(--color-primary) 0%, #ff5e00 100%);
-    color: white;
-    padding: 1rem 2.5rem;
-    font-size: var(--font-size-lg);
-    font-weight: 700;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.4);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    overflow: hidden;
-    transform: translateX(45px); /* Alineado con el slogan desplazado */
+/* New Premium Slanted CTA */
+.hero__cta-wrapper {
+    filter: drop-shadow(0 10px 15px rgba(249, 115, 22, 0.4));
+    transition: filter 0.3s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: inline-block;
+    transform: translateX(45px); /* Align with subtitle */
+    margin-top: var(--spacing-sm);
 }
 
-.hero__cta-premium::after {
+.hero__cta-wrapper:hover {
+    filter: drop-shadow(0 15px 25px rgba(249, 115, 22, 0.6));
+    transform: translate(45px, -5px);
+}
+
+.hero__cta-slanted {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-primary) 0%, #ff5e00 100%);
+    color: white;
+    padding: 1.2rem 3.5rem;
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+    clip-path: polygon(30px 0%, 100% 0%, calc(100% - 30px) 100%, 0% 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Light gleam effect */
+.hero__cta-slanted::after {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 50%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
     transform: skewX(-20deg);
     transition: none;
 }
 
-.hero__cta-premium:hover {
-    transform: translate(45px, -3px) scale(1.02);
-    box-shadow: 0 15px 35px -5px rgba(249, 115, 22, 0.6);
-}
-
-.hero__cta-premium:hover::after {
+.hero__cta-wrapper:hover .hero__cta-slanted::after {
     left: 200%;
     transition: left 0.7s ease-in-out;
 }
 
-.hero__cta-icon {
-    font-size: 1.2em;
-    transition: transform 0.3s ease;
+.hero__cta-arrow {
+    font-size: 1.6rem;
+    font-weight: bold;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin-left: -5px; /* Pull arrow slightly closer */
 }
 
-.hero__cta-premium:hover .hero__cta-icon {
-    transform: translateX(5px);
-}
-
-/* Wheel Button specific styling to create shopping cart illusion */
-.hero__cta-wheel {
-    flex-direction: column;
-    justify-content: center;
-    width: 120px;
-    height: 120px;
-    padding: 0 !important;
-    border-radius: 50% !important;
-    gap: 2px;
-    transform: translateX(0) !important; /* Center nicely under the basket logo */
-    margin-top: -15px; /* Pull it up closer to act as a wheel */
-}
-
-.hero__cta-wheel:hover {
-    transform: translateY(-3px) scale(1.05) !important;
-}
-
-.hero__cta-text-top {
-    font-size: 1.1rem;
-    font-weight: 900;
-    letter-spacing: 0.5px;
-    line-height: 1.1;
-}
-
-.hero__cta-text-bottom {
-    font-size: 0.8rem;
-    font-weight: 600;
-    opacity: 0.9;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.hero__cta-wrapper:hover .hero__cta-arrow {
+    transform: translateX(8px);
 }
 
 /* Right Visual */
@@ -333,9 +312,18 @@
         display: none; /* Oculta el eslogan en la versión móvil */
     }
 
-    .hero__cta-wheel {
-        width: 100px;
-        height: 100px;
-        margin-top: -2rem !important; /* Pull it up more on mobile */
+    .hero__cta-wrapper {
+        transform: translateX(0) !important; /* Centrado con respecto a la página */
+        margin-top: -1rem; /* Sube el botón para achicar el espacio vacío */
+    }
+    
+    .hero__cta-wrapper:hover {
+        transform: translate(0, -3px) !important;
+    }
+
+    .hero__cta-slanted {
+        padding: 0.8rem 2.5rem;
+        font-size: 1rem;
+        clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
     }
 }

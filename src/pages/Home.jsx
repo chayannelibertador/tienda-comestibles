@@ -52,10 +52,12 @@ export default function Home() {
                             tu supermercado en casa
                         </p>
 
-                        <button className="hero__cta-premium hero__cta-wheel" onClick={() => navigate('/catalog')}>
-                            <span className="hero__cta-text-top">Explorar</span>
-                            <span className="hero__cta-text-bottom">Tienda</span>
-                        </button>
+                        <div className="hero__cta-wrapper">
+                            <button className="hero__cta-slanted" onClick={() => navigate('/catalog')}>
+                                <span className="hero__cta-text">Explorar Tienda</span>
+                                <span className="hero__cta-arrow">→</span>
+                            </button>
+                        </div>
                     </div>
 
                     {/* Right Column: Floating Product */}
