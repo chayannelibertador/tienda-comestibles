@@ -52,8 +52,9 @@ export default function Home() {
                             tu supermercado en casa
                         </p>
 
-                        <button className="hero__cta-premium" onClick={() => navigate('/catalog')}>
-                            <span className="hero__cta-text">Explorar Tienda</span>
+                        <button className="hero__cta-premium hero__cta-wheel" onClick={() => navigate('/catalog')}>
+                            <span className="hero__cta-text-top">Explorar</span>
+                            <span className="hero__cta-text-bottom">Tienda</span>
                         </button>
                     </div>
 

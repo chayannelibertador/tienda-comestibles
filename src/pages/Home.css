@@ -117,6 +117,38 @@
     transform: translateX(5px);
 }
 
+/* Wheel Button specific styling to create shopping cart illusion */
+.hero__cta-wheel {
+    flex-direction: column;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    gap: 2px;
+    transform: translateX(0) !important; /* Center nicely under the basket logo */
+    margin-top: -15px; /* Pull it up closer to act as a wheel */
+}
+
+.hero__cta-wheel:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+}
+
+.hero__cta-text-top {
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+}
+
+.hero__cta-text-bottom {
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 /* Right Visual */
 .hero__visual {
     flex: 1;
@@ -301,10 +333,9 @@
         display: none; /* Oculta el eslogan en la versión móvil */
     }
 
-    .hero__cta-premium {
-        transform: translateX(0) !important; /* Centrado con respecto a la página */
-        padding: 0.6rem 1.4rem;
-        font-size: 0.85rem;
-        margin-top: -1rem; /* Sube el botón para achicar el espacio vacío */
+    .hero__cta-wheel {
+        width: 100px;
+        height: 100px;
+        margin-top: -2rem !important; /* Pull it up more on mobile */
     }
 }
