@@ -84,17 +84,17 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-md);
     background: linear-gradient(135deg, var(--color-primary) 0%, #ff5e00 100%);
     color: white;
-    padding: 1.2rem 3.5rem;
-    font-size: 1.2rem;
-    font-weight: 900;
+    padding: 0.9rem 2.5rem; /* Smaller padding */
+    font-size: 1.05rem; /* Smaller font size */
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     border: none;
     cursor: pointer;
-    clip-path: polygon(30px 0%, 100% 0%, calc(100% - 30px) 100%, 0% 100%);
+    /* Diamond style 6-sided hexagon */
+    clip-path: polygon(15px 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 15px 100%, 0% 50%);
     position: relative;
     overflow: hidden;
 }
@@ -115,17 +115,6 @@
 .hero__cta-wrapper:hover .hero__cta-slanted::after {
     left: 200%;
     transition: left 0.7s ease-in-out;
-}
-
-.hero__cta-arrow {
-    font-size: 1.6rem;
-    font-weight: bold;
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    margin-left: -5px; /* Pull arrow slightly closer */
-}
-
-.hero__cta-wrapper:hover .hero__cta-arrow {
-    transform: translateX(8px);
 }
 
 /* Right Visual */
@@ -322,8 +311,8 @@
     }
 
     .hero__cta-slanted {
-        padding: 0.8rem 2.5rem;
-        font-size: 1rem;
-        clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+        padding: 0.7rem 2rem;
+        font-size: 0.9rem;
+        clip-path: polygon(10px 0%, calc(100% - 10px) 0%, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0% 50%);
     }
 }

@@ -55,7 +55,6 @@ export default function Home() {
                         <div className="hero__cta-wrapper">
                             <button className="hero__cta-slanted" onClick={() => navigate('/catalog')}>
                                 <span className="hero__cta-text">Explorar Tienda</span>
-                                <span className="hero__cta-arrow">→</span>
                             </button>
                         </div>
                     </div>
