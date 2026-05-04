@@ -49,8 +49,12 @@ export default function TrustSection() {
                 </div>
 
                 <div className="trust-section__grid">
-                {TRUST_ITEMS.map((item) => (
-                    <div key={item.id} className="trust-card">
+                {TRUST_ITEMS.map((item, index) => (
+                    <div 
+                        key={item.id} 
+                        className={`trust-card ${isTitleVisible ? 'is-visible' : ''}`}
+                        style={{ transitionDelay: `${index * 0.15}s` }}
+                    >
                         <div className="trust-card__icon">{item.icon}</div>
                         <h3 className="trust-card__title">{item.title}</h3>
                         <p className="trust-card__text">{item.text}</p>
