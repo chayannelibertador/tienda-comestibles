@@ -7,11 +7,11 @@
     .mobile-catalog-nav {
         display: block;
         position: fixed;
-        top: 80px; /* Right beneath the main header. Header height is usually 70-80px */
+        top: 60px; /* Right beneath the main header (StickyMenu is 60px) */
         left: 0;
         right: 0;
-        z-index: 1000;
-        padding: 0 var(--spacing-sm);
+        z-index: 89;
+        padding: 0; /* Removed padding to make it full width */
         pointer-events: none; /* Let clicks pass through the container itself */
     }
 
@@ -20,11 +20,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: var(--color-white);
-        border-radius: 50px;
-        padding: 8px 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        border: 1px solid #E2E8F0;
+        background: var(--color-dark);
+        border-radius: 0;
+        padding: 10px 16px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
         pointer-events: auto; /* Re-enable clicks for the pill */
         position: relative;
         z-index: 1002;
@@ -33,7 +34,7 @@
     .nav-divider {
         width: 1px;
         height: 24px;
-        background-color: #E2E8F0;
+        background-color: rgba(255, 255, 255, 0.2);
         margin: 0 4px;
     }
 
@@ -43,7 +44,7 @@
         gap: 6px;
         background: transparent;
         border: none;
-        color: var(--color-gray);
+        color: rgba(255, 255, 255, 0.7);
         font-size: 0.85rem;
         font-weight: 600;
         padding: 6px 10px;
@@ -53,8 +54,8 @@
     }
 
     .mobile-nav-btn.active {
-        color: var(--color-primary);
-        background: rgba(249, 115, 22, 0.1);
+        color: var(--color-white);
+        background: rgba(255, 255, 255, 0.15);
     }
 
     .nav-icon {
@@ -85,7 +86,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 2px solid var(--color-white);
+        border: 2px solid var(--color-dark);
     }
 
     /* Dropdown Panels */

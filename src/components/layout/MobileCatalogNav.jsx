@@ -145,7 +145,7 @@ export default function MobileCatalogNav({
                             autoFocus={activeTab === 'search'}
                         />
                         <button className="apply-filter-btn" onClick={() => setActiveTab(null)}>
-                            Cerrar
+                            Buscar
                         </button>
                     </div>
                 </div>
