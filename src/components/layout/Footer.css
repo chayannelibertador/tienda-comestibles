@@ -94,3 +94,33 @@
 .footer__bottom p {
     color: #666;
 }
+
+@media (max-width: 768px) {
+    .footer__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .footer__col:nth-child(1),
+    .footer__col:nth-child(4) {
+        grid-column: 1 / -1;
+        text-align: center;
+    }
+    
+    .footer__col:nth-child(1) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: var(--spacing-lg);
+    }
+    
+    .footer__col:nth-child(4) {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: var(--spacing-lg);
+        margin-top: var(--spacing-sm);
+    }
+    
+    .footer__col:nth-child(1) .footer__brand,
+    .footer__col:nth-child(1) .social-links,
+    .footer__col:nth-child(4) .payment-icons {
+        justify-content: center;
+    }
+}
