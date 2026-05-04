@@ -293,6 +293,11 @@
 @media (max-width: 768px) {
     .catalog-promo-banner {
         height: 150px;
+        border-radius: 0;
+        margin-left: calc(-1 * var(--spacing-sm));
+        margin-right: calc(-1 * var(--spacing-sm));
+        width: calc(100% + var(--spacing-sm) * 2);
+        margin-top: 48px; /* Offset for the floating nav pill */
     }
     .promo-banner-overlay h3 {
         font-size: 1.25rem;
