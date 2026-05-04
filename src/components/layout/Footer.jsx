@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useSettings } from '../../context/SettingsContext';
-import BrandIcon from '../common/BrandIcon';
+import brandLogo from '../../assets/altoquemarket2.png';
 import './Footer.css';
 
 export default function Footer() {
@@ -11,13 +11,9 @@ export default function Footer() {
             <div className="footer__content">
                 <div className="footer__grid">
                     <div className="footer__col">
-                        <h3 className="footer__brand">
-                            <BrandIcon className="footer__brand-icon" />
-                            <div className="footer__brand-text">
-                                <span style={{ color: '#ff7300' }}>ALTOQUE</span>
-                                <span style={{ color: '#a2d348' }}>MARKET</span>
-                            </div>
-                        </h3>
+                        <div className="footer__brand" style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
+                            <img src={brandLogo} alt="Al Toque Market" style={{ height: '60px', width: 'auto', objectFit: 'contain' }} />
+                        </div>
                         <p>Tu supermercado de confianza en Libertador San Martín. Productos frescos y de calidad con entregas rápidas al toque.</p>
                         <div className="social-links">
                             {settings.instagram && (
